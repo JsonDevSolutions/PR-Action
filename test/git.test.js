@@ -25,4 +25,15 @@ describe("Testing GitCommand.status()", function(){
 
         expect(output).to.equal('You have 0 change/s.\n');
     });
+
+    it('Should return true if changes in directory is more than 1 file.', function(){
+        let wd = new WorkingDirectory();
+        wd.addFile("index.html", "views", "<html>Hello</html>");
+        wd.addFile("index.js", "assets/scripts", "alert('Hi!')");
+
+        let git = new GitCommand(wd);
+        let file_count = git.file_count();
+
+        expect(file_count).to.equal(true);
+    });
 })

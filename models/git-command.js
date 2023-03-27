@@ -28,6 +28,21 @@ class GitCommand {
             return `You have ${count} change/s.\n`;
         }
     }
+    file_count(){        
+        /*
+            Create logic here and run unit testing.
+        */
+        let count = 0;
+        for(let change in this.working_directory.new_changes){
+            count++;
+        }
+
+        if(count > 1){
+            return true;
+        }else{
+            return false;
+        }
+    }
 
     //Command: git add <filename/file directory/wildcard> 
     add(path_file){
