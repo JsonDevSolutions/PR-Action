@@ -1,0 +1,19 @@
+name: Github Pull Request Action Assignment
+on:
+  pull_request:
+    branches: 
+      - master
+      - develop
+jobs:
+  build:
+    name: Build Continuous Integration for pull request
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout project
+      uses: actions/checkout@v3
+    - name: Use Node.js 
+      uses: actions/setup-node@v3
+    - name: Install dependencies
+      run: npm install
+    - name: Test project
+      run: npm test
