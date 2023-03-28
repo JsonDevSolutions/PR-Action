@@ -5,7 +5,7 @@ const chai = require('chai');
 const expect = chai.expect;
 
 
-describe("Testing GitCommand.status()", function(){
+describe("Check any changes in the directory", function(){
 
     it('Should return information if has changes in directory', function(){
         let wd = new WorkingDirectory();
@@ -29,7 +29,7 @@ describe("Testing GitCommand.status()", function(){
     it('Should return true if changes in directory is more than 1 file.', function(){
         let wd = new WorkingDirectory();
         wd.addFile("index.html", "views", "<html>Hello</html>");
-
+        wd.addFile("index.js", "assets/scripts", "alert('Hi!')");
 
         let git = new GitCommand(wd);
         let file_count = git.file_count();
